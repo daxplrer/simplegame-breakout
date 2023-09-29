@@ -1,0 +1,6 @@
+const path = require('path')
+const fs = require('fs')
+const indexfile = path.join(__dirname, 'src', 'scenes', 'BreakTheBlockScene.js') 
+const readfile = fs.readFileSync(indexfile).toString()
+const replace = readfile.split('this.player').join('this.pad')
+fs.writeFileSync(indexfile, replace)
